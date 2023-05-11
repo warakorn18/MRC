@@ -1,0 +1,40 @@
+body{
+    margin:0;
+   
+    padding: 0;
+    box-sizing: border-box;
+    background-color:rgb(214, 209, 209) ;
+}
+/* .Navbar{
+    background-color: black;
+
+  } */
+.brand{
+    color: azure;
+    
+    font-size: clamp(24px, 2.5vw, 16px);
+    margin-left:3%; 
+    
+  }
+.brand:hover{
+    color: rgb(56, 255, 255);
+    font-size: clamp(24px, 2.5vw, 16px); 
+}
+.brand-text{
+    color: azure;
+}
+.brand-text:hover{
+    color: rgb(170, 255, 251);
+}
+.brand-text:focus{
+    color: rgb(255, 110, 110);
+}
+.time{
+    margin: 0;
+    margin-left: 3%;
+    color: blanchedalmond;
+    font-size: 13%;
+}
+
+
+

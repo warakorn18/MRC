@@ -1,0 +1,54 @@
+body
+{
+
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400% ;
+    position: relative;
+    animation: change 15s ease-in-out infinite;
+    /* background: rgb(238,174,202);
+    background: linear-gradient(128deg, rgba(238,174,202,1) 0%, rgba(195,180,217,1) 41%, rgba(148,187,233,1) 100%); */
+}
+@keyframes change{
+    0%
+    {
+        background-position: 0 50%;
+    }
+    50%
+    {
+        background-position: 100% 50%;
+    }
+    100%
+    {
+        background-position: 0 50%;
+    }
+}
+
+   .main-page1{
+    margin:0;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.main-page2{
+    margin:0;
+    margin-left: 3%;
+}
+.textmain-page1{
+    /* margin-top:1% ; */
+    font-size: 60px;
+    font-weight: bold;
+    font-variant: small-caps;
+    
+}
+.textmain-page2{
+    margin-TOP: 0.5%;
+    font-size: 60px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+.bar{
+    margin: 0;
+    width: 70%;
+    height: 65vh;
+    /* display: flexbox; */
+}
+

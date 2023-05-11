@@ -1,0 +1,44 @@
+.Form Control{
+    width: 50%;
+}
+.text_Up{
+    color: black;
+}
+
+
+.btu_Update  {
+    margin: 3%;
+    width: 90%;
+    background-color:transparent;
+    color:bisque;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: azure;
+
+}
+.btu_Update:hover{
+    background-color: yellowgreen;
+    color: white;
+    
+}
+.btu_Delete {
+    margin: 3%;
+    width: 90%;
+    background-color:transparent;
+    color: bisque;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: azure;
+}
+.btu_Delete:hover {
+    background-color: red;
+    color: white;
+}
+.form-select{
+    margin:0;
+    width:90%;
+    color: black;
+}
+.select option{
+    color: black;
+}

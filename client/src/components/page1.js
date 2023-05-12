@@ -1,6 +1,6 @@
 // import { BarChart } from "react-bootstrap-icons";
 import Showlist from "./function/Teble";
-import Databar from "./function/bar";
+import Chartbar from "./function/bar";
 // import bar_chart from "./function/bar";
 import MasterPage from "./master_page";
 import './page1-2.css';
@@ -17,7 +17,7 @@ function Page1() {
           {/* <Bardata /> */}
           <div id="chartdiv"></div>
         </ul>
-        <Databar />
+      <Chartbar/>
         <Showlist />
       </div>
     </MasterPage>

@@ -5,7 +5,7 @@ const ConnectDB = mysql.createConnection({
   host: "localhost",
   password: "",
   database: "mt900db",
-},console.log('Connected MT900_Server'));
+}, console.log('Connected MT900_Server'));
 
 // const ConnectDB = async () => {
 //   try {

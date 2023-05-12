@@ -30,7 +30,7 @@ const MasterPage = (props) => {
         <ul className="time">
           <DateTime />
         </ul>
-        
+
 
         {/* <div class="cube-loader">
           <div class="cube-top"></div>
@@ -42,7 +42,7 @@ const MasterPage = (props) => {
           </div>
         </div> */}
       </Navbar>
-      
+
 
       <div>{props.children}</div>
     </div>

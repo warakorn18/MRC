@@ -10,14 +10,16 @@ import { Form } from "react-bootstrap";
 import Swal from 'sweetalert2'
 
 
+
 function Showlist() {
   const [user, setUser] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const [newcode, setNewcode] = useState("")
-  const [newname, setNewname] = useState("")
+  // const [newcode, setNewcode] = useState("")
+  // const [newname, setNewname] = useState("")
   const [newtext, setNewtext] = useState("")
-  const [newreport, setNewreport] = useState("")
+  // const [newreport, setNewreport] = useState("")
+
 
   const delay = (delayInms) => {
     return new Promise(resolve => setTimeout(resolve, delayInms));
@@ -25,19 +27,19 @@ function Showlist() {
 
 
   const [iduser, setIduser] = useState([]);
- 
-
 
 
   useEffect(() => {
     getUse();
   }, []);
 
- const handleShow = (iduser) => {
+
+  const handleShow = (iduser) => {
     setShow(true);
     setIduser(iduser);
     console.log(iduser);
   }
+
 
   // GET TO DATA TEBLE
   const getUse = () => {
@@ -51,28 +53,28 @@ function Showlist() {
   // TO form.js
 
 
+
   // UPDATE TO DATA TEBLE
 
-  const handleupdate = async (iduser,req) => {
-    await Axios.put("http://localhost:5000/update", {code_user:newcode, name_user:newname, report:newreport,   Text: newtext, iduser_tb: iduser }).then((response) => {
+  const handleupdate = async (iduser_tb, req) => {
+    await Axios.put("http://localhost:5000/update", { Text: newtext, iduser_tb: iduser }).then((response) => {
       setUser(
         user.map((val) => {
-          return val.iduser_tb === iduser
-            ? {
-              iduser_tb: val.iduser_tb,
-              // times:val.times,
-              code_user: newcode,
-              name_user: newname,
-              Text: newtext,
-              report: newreport
-            }
-            : val;
+          return val.iduser_tb == iduser_tb ? {
+            iduser_tb: val.iduser_tb,
+            code_user: val.code_user,
+            name_user: val.name_user,
+            report: val.report,
+            Text: newtext
+          } : val;
         })
       );
       window.location.reload(true);
     });
-    console.log("numberUpdate",iduser);
+    console.log("numberUpdate", iduser);
   }
+
+
 
 
   // DELETE TO DATA TEBLE
@@ -99,44 +101,13 @@ function Showlist() {
               return val.id !== id;
             })
           );
-
-
-
         }
         );
         await delay(1000);
         window.location.reload(true);
-
-
       }
-
-
-
     })
   }
-
-
-
-
-
-  // const handledelete = async(id) => {
-  //   Axios.delete(`http://localhost:5000/delete/${id}`,).then((response) => {
-  //     setUser(
-  //       user.filter((val) => {
-  //         return val.id !== id;
-  //       })
-  //     );
-  //     // console.log(id,"save ");
-
-  //   });
-  //   await delay(1000)
-  //   window.location.reload(true);
-  //   console.log();
-  // }
-
-
-
-
 
 
   // const columns = [
@@ -149,9 +120,6 @@ function Showlist() {
   //     selector: (row) => row.code_user,
   //   },
   // ];
-
-
-
 
 
   return (
@@ -167,7 +135,6 @@ function Showlist() {
             <th>Report</th>
             <th>TEXT</th>
             <th></th>
-
           </tr>
         </thead>
         {user.map((val, index) => {
@@ -178,26 +145,24 @@ function Showlist() {
                   <td>{index + 1}</td>
                   <td>{val.code_user}</td>
                   <td>{val.name_user}</td>
-                  <td>{val.times }</td>
+                  <td>{val.times}</td>
                   <td>{val.report}</td>
                   <td>{val.Text}</td>
 
 
                   {/*UPDATA DATA TEBLE BUTTON */}
 
-
                   <td>
                     <button className='btu_Update' onClick={() => { handleShow(val.iduser_tb) }}>
                       Update
                     </button>
-
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
                         <Modal.Title className="text_Up">Update Report</Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
                         <Form>
-                          <Form.Group className="mb-3 ">
+                          {/* <Form.Group className="mb-3 ">
                             <Form.Label>Code User</Form.Label>
                             <Form.Control
                               className='text-center'
@@ -239,20 +204,19 @@ function Showlist() {
                               }}
 
                             ></Form.Control>
-                          </Form.Group>
-
+                          </Form.Group> */}
                           <ul className="select">
                             <p>ReportTime</p>
                             <Form.Select className="form-select"
                               onChange={(e) => {
                                 setNewtext(e.target.value)
-                                console.log(iduser);
+                                // console.log(iduser);
                               }}
                             >
                               <option>Open this select menu</option>
-                              <option value="Want now">Want now</option>
-                              <option value="Don't want now">Don't want now</option>
-
+                              <option value="finish">finish</option>
+                              <option value="can't fix">can't fix</option>
+                              <option value="waiting for correction">waiting for correction</option>
                             </Form.Select>
                           </ul>
                         </Form>
@@ -268,11 +232,7 @@ function Showlist() {
                     </Modal>
 
 
-
-
                     {/* BUTTON DELETE ON DATATEBLE */}
-
-
 
                     <button className="btu_Delete" onClick={() => { btu_interF(val.iduser_tb) }}>Delete</button>
                   </td>

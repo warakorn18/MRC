@@ -18,7 +18,7 @@ function Form_crud() {
     code_user: "",
     name_user: "",
     report: "",
-    Text: "รอการแก้ไข"
+    Text: "finish"
   })
 
   const handleChange = (e) => {
@@ -68,9 +68,6 @@ function Form_crud() {
               placeholder="Enter your Name"
               onChange={(e) => handleChange(e)}
             />
-
-
-
           </ul>
           <ul className="form-input">
             <p>Report</p>

@@ -28,16 +28,16 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top' 
+      position: 'top'
     },
     title: {
       display: true,
-      
+
     },
   },
 };
 
-const labels = ["Monday","Tuesday","Wednday","Thursday","Friday","Saturday"];
+const labels = ["Monday", "Tuesday", "Wednday", "Thursday", "Friday", "Saturday"];
 
 export const data = {
   labels,
@@ -61,9 +61,9 @@ export const data = {
 
 
 export default function databar() {
-  
-  return(<div className='bar-main'> <Bar width={800} height={200} options={options} data={data} />
-  <br/><br/>
-</div>
+
+  return (<div className='bar-main'> <Bar width={800} height={200} options={options} data={data} />
+    <br /><br />
+  </div>
   );
 }

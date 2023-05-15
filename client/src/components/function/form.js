@@ -18,7 +18,7 @@ function Form_crud() {
     code_user: "",
     name_user: "",
     report: "",
-    Text: "finish"
+    Text: "waiting for correction"
   })
 
   const handleChange = (e) => {

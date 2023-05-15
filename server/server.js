@@ -5,6 +5,13 @@ const ConnectDB = require("./Config/db");
 const bodyParser = require("body-parser");
 const app = express();
 
+const moment = require('moment');
+
+const dt = new Date()
+const now = moment(dt).format('YYYY-MM-DD')
+const dateFrom = moment(now).subtract(7, 'd').format('YYYY-MM-DD');
+console.log(now);
+console.log(dateFrom)
 
 
 app.use(cors());
@@ -19,6 +26,21 @@ app.get("/user_tb", (req, res) => {
     }
   });
 });
+
+app.get("/user_day", (req, res) => {
+  ConnectDB.query(`SELECT times,COUNT(DAY) as sum FROM ${`user_tb`} where times between ${dateFrom} and ${now} GROUP by cast(times as DATE)`, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result)
+      res.send(result);
+    }
+  });
+});
+
+
+
+
 
 
 app.post("/create", (req, res) => {
@@ -74,7 +96,6 @@ app.put("/update", (req, res) => {
 //     }
 //   })
 // });
-
 
 app.delete('/delete/:iduser_tb', (req, res) => {
   const iduser_tb = req.params.iduser_tb;
